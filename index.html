@@ -155,73 +155,45 @@
             
     
     
-        <article class="kratos-hentry kratos-entry-border-new clearfix">
-            <div class="kratos-status">
+        <article class="kratos-hentry clearfix">
+            <div class="kratos-entry-border-new clearfix">
                 
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content">
+                <div class="kratos-entry-thumb-new">
+                    <a href="/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/">
                         
-                            <h1 id="RSShub部署"><a href="#RSShub部署" class="headerlink" title="RSShub部署"></a>RSShub部署</h1><p><a target="_blank" rel="noopener" href="https://linkthis.me/2019/05/29/the-note-of-rsshub/">RSShub部署参考</a></p>
-<p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">nodejs-centos安装参考</a></p>
-<p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux-mint/">nodejs-debian/ubuntu安装参考</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">rpm,deb包github仓库</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ca79e7ca38a4">npm 安装yarn</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.rsshub.app/">RSShub官方文档</a></p>
-<h2 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h2><h3 id="1-nodejs"><a href="#1-nodejs" class="headerlink" title="1.nodejs"></a>1.nodejs</h3><blockquote>
-<p>编译安装容易报错,所以采用rpm,deb包安装</p>
-</blockquote>
-<h4 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install curl #安装curl</span><br><span class="line"></span><br><span class="line">curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash - #下载rpm包，v16为稳定版</span><br><span class="line"></span><br><span class="line">sudo yum install -y nodejs #安装nodejs</span><br><span class="line"></span><br><span class="line">node -v #查看版本</span><br><span class="line"></span><br><span class="line">npm -v #查看npm版本</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>装不上请更新epel仓库，参见<a target="_blank" rel="noopener" href="https://support.huaweicloud.com/ecs_faq/ecs_faq_1007.html">华为云epel镜像</a></p>
-</blockquote>
-<h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update #更新apt包管理器</span><br><span class="line"></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - #下载deb包</span><br><span class="line"></span><br><span class="line">cat /etc/apt/sources.list.d/nodesource.list #验证nodejs存储库是否添加</span><br><span class="line"></span><br><span class="line">sudo apt -y install nodejs #安装nodejs</span><br><span class="line"></span><br><span class="line">node -v #查看nodejs版本</span><br><span class="line"></span><br><span class="line">npm -v #查看npm版本</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-yarn"><a href="#2-yarn" class="headerlink" title="2.yarn"></a>2.yarn</h3><blockquote>
-<p>npm也是经常报错，所以我选yarn</p>
-</blockquote>
-<ul>
-<li>1.安装</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org #npm使用淘宝源安装yarn</span><br><span class="line"></span><br><span class="line">yarn config set registry https://registry.npm.taobao.org -g #更换淘宝源镜像</span><br><span class="line"></span><br><span class="line">yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br><span class="line"></span><br><span class="line">yarn -v #查看yarn版本</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装RSShub"><a href="#2-安装RSShub" class="headerlink" title="2.安装RSShub"></a>2.安装RSShub</h2><h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install -y git #debian/ubuntu</span><br><span class="line"></span><br><span class="line">yum install -y git #centos</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-克隆仓库"><a href="#2-克隆仓库" class="headerlink" title="2.克隆仓库"></a>2.克隆仓库</h3><blockquote>
-<p>网站运行目录克隆</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/DIYgod/RSSHub.git #官方github仓库</span><br><span class="line"></span><br><span class="line">#其他的github镜像</span><br><span class="line">git clone https://hub.fastgit.org/DIYgod/RSSHub.git</span><br><span class="line">git clone https://gitclone.com/github.com/DIYgod/RSSHub.git</span><br><span class="line">git clone https://github.com.cnpmjs.org/DIYgod/RSSHub.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-服务部署"><a href="#3-服务部署" class="headerlink" title="3.服务部署"></a>3.服务部署</h3><ul>
-<li>安装服务</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm ci --production #npm</span><br><span class="line"></span><br><span class="line">yarn install --production #yarn</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>启动</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm start #npm</span><br><span class="line"></span><br><span class="line">yarn start #yarn</span><br><span class="line"></span><br><span class="line">#或使用 PM2(opens new window)</span><br><span class="line">pm2 start lib/index.js --name rsshub</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-访问"><a href="#4-访问" class="headerlink" title="4.访问"></a>4.访问</h3><p>访问</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://&lt;ip或域名&gt;:1200</span><br></pre></td></tr></table></figure>
-
-<p>即可</p>
-<h3 id="5-反向代理"><a href="#5-反向代理" class="headerlink" title="5.反向代理"></a>5.反向代理</h3><p>ip:端口而且不带https总归是不好看不好用不安全的所以使用宝塔来Nginx反向代理</p>
-<p>配置好你的域名&gt;&gt;设置&gt;&gt;反向代理</p>
-<p><img src="https://img.goojoe.cc/2021/12/26/u7CDEdzi.png" alt="image-20211226223855631"></p>
-<h3 id="6-使用方法"><a href="#6-使用方法" class="headerlink" title="6.使用方法"></a>6.使用方法</h3><p>将rsshub.app域名替换为你自己的即可</p>
-
+                            <img class="kratos-entry-thumb-new-img">
                         
+                    </a>
+                </div>
+                <div class="kratos-post-inner-new">
+                    <header class="kratos-entry-header-new">
+                            
+                        <h2 class="kratos-entry-title-new"><a href="/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/">post title with whitespace</a>
+                    </header>
+                    <div class="kratos-entry-content-new">
+                        <p>
+                            
+                                RSShub部署RSShub部署参考
+nodejs-centos安装参考
+nodejs-debian/ubuntu安装参考
+rpm,deb包github仓库
+npm 安装yarn
+RSShub官方文档
+1.环境配置1.nodejs
+编...
+                            
+                        </p>
                     </div>
                 </div>
-            </div>
-            
                 <footer class="kratos-post-meta-new">
                     <span class="pull-left">
-                        <a><i class="fa fa-calendar"></i></a><a>2021-12-26</a>
-                        
+                        <a>
+                            <i class="fa fa-calendar"></i>
+                            2021-12-26
+                        </a>
+                        <a>
+                            
+                        </a>
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
@@ -231,15 +203,11 @@
                             
                         
                     </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
+                    <span class="pull-right">
+                        <a class="read-more" href="/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
+                    </span>
                 </footer>
-            
+            </div>
         </article>
     
 
@@ -294,6 +262,9 @@
         
         
           
+          
+            <a class="list-group-item" href="/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/"><i class="fa  fa-book"></i> post title with whitespace</a>
+            
           
         
       </ul>
