@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -fsSL https:&#x2F;&#x2F;rpm.">
+  <meta name="description" content="RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn RSShub官方文档 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -fsSL h">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://goojoe.github.io/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -fsSL https:&#x2F;&#x2F;rpm.">
+<meta property="og:description" content="RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn RSShub官方文档 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -fsSL h">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://goojoe.github.io/null">
 <meta property="article:published_time" content="2021-12-26T13:46:35.377Z">
-<meta property="article:modified_time" content="2021-12-26T14:19:32.287Z">
+<meta property="article:modified_time" content="2021-12-26T14:40:26.232Z">
 <meta property="article:author" content="咕咕乔">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://goojoe.github.io/null">
@@ -168,7 +168,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        1282
+                        ~1.61K
                     
                     字
                 </li>
@@ -177,7 +177,7 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1640528372287"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1640529626232"></time> 前，其中的内容可能需要更新。
             </div>
             
             <hr />
@@ -186,6 +186,7 @@
 <p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux-mint/">nodejs-debian/ubuntu安装参考</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">rpm,deb包github仓库</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ca79e7ca38a4">npm 安装yarn</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.rsshub.app/">RSShub官方文档</a></p>
 <h2 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h2><h3 id="1-nodejs"><a href="#1-nodejs" class="headerlink" title="1.nodejs"></a>1.nodejs</h3><blockquote>
 <p>编译安装容易报错,所以采用rpm,deb包安装</p>
 </blockquote>
@@ -213,7 +214,25 @@
 
 
 
-<h3 id="3-服务部署"><a href="#3-服务部署" class="headerlink" title="3.服务部署"></a>3.服务部署</h3>
+<h3 id="3-服务部署"><a href="#3-服务部署" class="headerlink" title="3.服务部署"></a>3.服务部署</h3><ul>
+<li>安装服务</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm ci --production #npm</span><br><span class="line"></span><br><span class="line">yarn install --production #yarn</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm start #npm</span><br><span class="line"></span><br><span class="line">yarn start #yarn</span><br><span class="line"></span><br><span class="line">#或使用 PM2(opens new window)</span><br><span class="line">pm2 start lib/index.js --name rsshub</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-访问"><a href="#4-访问" class="headerlink" title="4.访问"></a>4.访问</h3><p>访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://&lt;ip或域名&gt;:1200</span><br></pre></td></tr></table></figure>
+
+<p>即可</p>
+<h3 id="5-反向代理"><a href="#5-反向代理" class="headerlink" title="5.反向代理"></a>5.反向代理</h3><p>ip:端口而且不带https总归是不好看不好用不安全的所以使用宝塔来Nginx反向代理</p>
+<p>配置好你的域名&gt;&gt;设置&gt;&gt;反向代理</p>
+<p><img src="https://img.goojoe.cc/2021/12/26/u7CDEdzi.png" alt="image-20211226223855631"></p>
+<h3 id="6-使用方法"><a href="#6-使用方法" class="headerlink" title="6.使用方法"></a>6.使用方法</h3><p>将rsshub.app域名替换为你自己的即可</p>
+
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -285,8 +304,9 @@ nodejs-centos安装参考
 nodejs-debian/ubuntu安装参考
 rpm,deb包github仓库
 npm 安装yarn
+RSShub官方文档
 1.环境配置1.nodejs
-编译安装容易报错,所以采...`;
+编...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
