@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn RSShub官方文档 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -fsSL h">
+  <meta name="description" content="RSShub部署RSShub部署参考 影子屋参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn RSShub官方文档 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSShub部署">
 <meta property="og:url" content="https://goojoe.github.io/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn RSShub官方文档 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -fsSL h">
+<meta property="og:description" content="RSShub部署RSShub部署参考 影子屋参考 nodejs-centos安装参考 nodejs-debian&#x2F;ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn RSShub官方文档 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装  Centos123456789sudo yum -y install curl #安装curlcurl -">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://goojoe.github.io/null">
 <meta property="article:published_time" content="2021-12-26T15:18:24.000Z">
-<meta property="article:modified_time" content="2021-12-26T15:22:05.032Z">
+<meta property="article:modified_time" content="2021-12-26T16:21:36.629Z">
 <meta property="article:author" content="咕咕乔">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://goojoe.github.io/null">
@@ -170,7 +170,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~1.56K
+                        ~3.20K
                     
                     字
                 </li>
@@ -179,11 +179,12 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1640532125032"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1640535696629"></time> 前，其中的内容可能需要更新。
             </div>
             
             <hr />
             <h1 id="RSShub部署"><a href="#RSShub部署" class="headerlink" title="RSShub部署"></a>RSShub部署</h1><p><a target="_blank" rel="noopener" href="https://linkthis.me/2019/05/29/the-note-of-rsshub/">RSShub部署参考</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.bgme.me/posts/how-to-install-rsshub/#nodejs">影子屋参考</a></p>
 <p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">nodejs-centos安装参考</a></p>
 <p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux-mint/">nodejs-debian/ubuntu安装参考</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">rpm,deb包github仓库</a></p>
@@ -232,6 +233,42 @@
 <p>配置好你的域名&gt;&gt;设置&gt;&gt;反向代理</p>
 <p><img src="https://img.goojoe.cc/2021/12/26/u7CDEdzi.png" alt="image-20211226223855631"></p>
 <h3 id="6-使用方法"><a href="#6-使用方法" class="headerlink" title="6.使用方法"></a>6.使用方法</h3><p>将rsshub.app域名替换为你自己的即可</p>
+<h2 id="3-开机自启动"><a href="#3-开机自启动" class="headerlink" title="3.开机自启动"></a>3.开机自启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/rsshub.service</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>没有vim就把vim换成vi或者使用SFTP到<code>/etc/systemd/system/</code>创建<code>rsshub.service</code>文件并编辑</p>
+</blockquote>
+<p>vim使用方法</p>
+<p><code>i</code>键进入编辑模式</p>
+<p><code>ESC键</code>+<code>:</code>+<code>wq</code>:保存并退出</p>
+<p><code>ESC键</code>+<code>:</code>+<code>q!</code>:强制退出（不保存）</p>
+<p><code>Shift</code>+<code>insert</code>:粘贴</p>
+<blockquote>
+<p><code>insert</code>一般在退格键的右边</p>
+</blockquote>
+<ul>
+<li>代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Rsshub</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/home/RSSHub #你的rsshub运行目录</span><br><span class="line">ExecStart=/bin/bash -c &#x27;yarn start&#x27; #启动命令,npm是npm start</span><br><span class="line">Restart=on-failure</span><br><span class="line">#User=nobody #User和Group可以省略，如需配置请注意权限问题,删掉#号注释即可开启</span><br><span class="line">#Group=nogroup</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>执行命令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload          #重载Systemd脚本</span><br><span class="line">systemctl enable rsshub.service  #开机自启动</span><br><span class="line">systemctl status rsshub.service  #查看状态</span><br></pre></td></tr></table></figure>
+
+<p>2.常用systemd命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload          #重载Systemd脚本</span><br><span class="line">systemctl enable rsshub.service  #开机自启动</span><br><span class="line">systemctl disable rsshub.service #关闭开机自启动</span><br><span class="line">systemctl start rsshub.service   #启动</span><br><span class="line">systemctl stop rsshub.service    #停止</span><br><span class="line">systemctl status rsshub.service  #查看状态</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h2><p>配置文件在<code>lib/config.js</code></p>
+<p><a target="_blank" rel="noopener" href="https://docs.rsshub.app/install/#pei-zhi">配置文档</a></p>
+<p>完成以上安装后，可以生成大多数网站的RSS，但部分RSS需要单独配置后方可生成，如 <a target="_blank" rel="noopener" href="https://accounts.pixiv.net/signup">pixiv</a>、<a target="_blank" rel="noopener" href="https://disqus.com/api/applications/">disqus</a>、<a target="_blank" rel="noopener" href="https://apps.twitter.com/">twitter</a>、<a target="_blank" rel="noopener" href="https://console.developers.google.com/">youtube</a>、<a target="_blank" rel="noopener" href="https://telegram.org/blog/bot-revolution">telegram</a>、<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">github</a></p>
+<p>下面将以 pixiv 为例介绍相应的配置方法。</p>
+<ul>
+<li>配置文件</li>
+</ul>
+<p>手动部署直接修改 systemd service 文件，在 <code>Environment</code> 中加入所需环境变量即可。可添加多个变量，变量之间使用空格分隔开来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Rsshub</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/home/RSSHub #你的rsshub运行目录</span><br><span class="line">ExecStart=/bin/bash -c &#x27;yarn start&#x27; #启动命令,npm是npm start</span><br><span class="line">Environment=PORT=1200 CACHE_TYPE=memory CACHE_EXPIRE=600 LISTEN_INADDR_ANY=0 PIXIV_USERNAME=user PIXIV_PASSWORD=password #在此加入环境变量,具体请看上面的配置文档</span><br><span class="line">Restart=on-failure</span><br><span class="line">#User=nobody #User和Group可以省略，如需配置请注意权限问题,删掉#号注释即可开启</span><br><span class="line">#Group=nogroup</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -300,13 +337,13 @@
             const hostUrl       = "https://goojoe.github.io/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/";
             const title         = "「RSShub部署」";
             const excerpt       = `RSShub部署RSShub部署参考
+影子屋参考
 nodejs-centos安装参考
 nodejs-debian/ubuntu安装参考
 rpm,deb包github仓库
 npm 安装yarn
 RSShub官方文档
-1.环境配置1.nodejs
-编...`;
+1.环境配置1.no...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -328,7 +365,7 @@ RSShub官方文档
                     
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2021-12-26</span>
+                <span>最后编辑：2021-12-27</span>
                 </div>
             </div>
         </footer>
