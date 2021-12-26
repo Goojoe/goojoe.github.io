@@ -1,1 +1,1 @@
-[{"date":"2021-12-26T13:46:35.377Z","url":"/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/","categories":[["undefined",""]],"content":"RSShub部署1.环境配置1.nodejsCentosDebian/Ubuntu2.yarn"}]
+[{"date":"2021-12-26T13:46:35.377Z","url":"/2021/12/26/RSShub%E9%83%A8%E7%BD%B2/","categories":[["undefined",""]],"content":"RSShub部署RSShub部署参考 nodejs-centos安装参考 nodejs-debian/ubuntu安装参考 rpm,deb包github仓库 npm 安装yarn 1.环境配置1.nodejs 编译安装容易报错,所以采用rpm,deb包安装 Centos 装不上请更新epel仓库，参见华为云epel镜像 Debian/Ubuntu 2.yarn npm也是经常报错，所以我选yarn 1.安装 2.安装RSShub"}]

@@ -165,7 +165,30 @@
                 <div class="kratos-status-inner">
                     <div class="kratos-status-content">
                         
-                            <h1 id="RSShub部署"><a href="#RSShub部署" class="headerlink" title="RSShub部署"></a>RSShub部署</h1><h2 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h2><h3 id="1-nodejs"><a href="#1-nodejs" class="headerlink" title="1.nodejs"></a>1.nodejs</h3><h4 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h4><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><h3 id="2-yarn"><a href="#2-yarn" class="headerlink" title="2.yarn"></a>2.yarn</h3>
+                            <h1 id="RSShub部署"><a href="#RSShub部署" class="headerlink" title="RSShub部署"></a>RSShub部署</h1><p><a target="_blank" rel="noopener" href="https://linkthis.me/2019/05/29/the-note-of-rsshub/">RSShub部署参考</a></p>
+<p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">nodejs-centos安装参考</a></p>
+<p><a target="_blank" rel="noopener" href="https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux-mint/">nodejs-debian/ubuntu安装参考</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">rpm,deb包github仓库</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ca79e7ca38a4">npm 安装yarn</a></p>
+<h2 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h2><h3 id="1-nodejs"><a href="#1-nodejs" class="headerlink" title="1.nodejs"></a>1.nodejs</h3><blockquote>
+<p>编译安装容易报错,所以采用rpm,deb包安装</p>
+</blockquote>
+<h4 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install curl #安装curl</span><br><span class="line"></span><br><span class="line">curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash - #下载rpm包，v16为稳定版</span><br><span class="line"></span><br><span class="line">sudo yum install -y nodejs #安装nodejs</span><br><span class="line"></span><br><span class="line">node -v #查看版本</span><br><span class="line"></span><br><span class="line">npm -v #查看npm版本</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>装不上请更新epel仓库，参见<a target="_blank" rel="noopener" href="https://support.huaweicloud.com/ecs_faq/ecs_faq_1007.html">华为云epel镜像</a></p>
+</blockquote>
+<h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update #更新apt包管理器</span><br><span class="line"></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - #下载deb包</span><br><span class="line"></span><br><span class="line">cat /etc/apt/sources.list.d/nodesource.list #验证nodejs存储库是否添加</span><br><span class="line"></span><br><span class="line">sudo apt -y install nodejs #安装nodejs</span><br><span class="line"></span><br><span class="line">node -v #查看nodejs版本</span><br><span class="line"></span><br><span class="line">npm -v #查看npm版本</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-yarn"><a href="#2-yarn" class="headerlink" title="2.yarn"></a>2.yarn</h3><blockquote>
+<p>npm也是经常报错，所以我选yarn</p>
+</blockquote>
+<ul>
+<li>1.安装</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn --registry=https://registry.npm.taobao.org #npm使用淘宝源安装yarn</span><br><span class="line"></span><br><span class="line">yarn config set registry https://registry.npm.taobao.org -g #更换淘宝源镜像</span><br><span class="line"></span><br><span class="line">yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g</span><br><span class="line"></span><br><span class="line">yarn -v #查看yarn版本</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装RSShub"><a href="#2-安装RSShub" class="headerlink" title="2.安装RSShub"></a>2.安装RSShub</h2>
                         
                     </div>
                 </div>
